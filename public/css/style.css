@@ -1,0 +1,21 @@
+.row {
+    display: flex;
+    /* justify-content: space-around; */
+    flex-wrap: wrap;
+}
+.box{
+    margin: 5px;
+    padding: 5px;
+    border:1px solid gray;
+    border-radius: 5px;
+    
+}
+header{
+
+    background-color: #cf6565;
+}
+footer{
+    
+    background-color: #f0f0f0;
+    margin-top: 20px;
+}
