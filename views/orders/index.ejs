@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orders</title>
+</head>
+<body>
+    <h2>Orders Admin Page</h2>
+    <a href="/orders/place">Place Order</a>
+    <ol>
+    <% orders.forEach(order => { %>
+        <li>
+            <strong>User:</strong> <%= order.userId ? order.userId.email : 'Unknown' %> - 
+            <strong>Value:</strong> ₹<%= order.orderValue %> - 
+            <strong>Items:</strong> 
+            <% order.items.forEach(item => { %>
+                <%= item.name %> (x<%= item.quantity %>) 
+            <% }) %> - 
+            <strong>Status:</strong> <%= order.status %> - 
+            <a href="/orders/<%= order._id %>/update">Update</a> - 
+            <a href="/orders/<%= order._id %>/delete">Delete</a>
+        </li>
+    <% }) %>
+    </ol>
+</body>
+</html>

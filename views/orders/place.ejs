@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Place Order</title>
+</head>
+<body>
+    <h2>Place Order Form</h2>
+    <form action="/orders/place" method="POST">
+        <p><input type="email" name="email" placeholder="Email" required></p>
+        <p><input type="number" name="orderValue" placeholder="Order Value" required></p>
+        <p><input type="text" name="items" placeholder="Items (comma separated)" required></p>
+        <p><button>Place Order</button></p>
+    </form>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Order</title>
+</head>
+<body>
+    <h2>Update Order Status</h2>
+    <form action="/orders/<%= order._id %>/update" method="POST">
+        <p>User: <strong><%= order.userId ? order.userId.email : 'Unknown' %></strong></p>
+        <p>Order Value: <strong>₹<%= order.orderValue %></strong></p>
+        <p>Items: <strong>
+            <% order.items.forEach(item => { %>
+                <%= item.name %> (x<%= item.quantity %>)
+            <% }) %>
+        </strong></p>
+        <p>
+            <label for="status">Status:</label>
+            <select name="status" id="status">
+                <option value="Pending" <%= order.status === "Pending" ? "selected" : "" %>>Pending</option>
+                <option value="Processing" <%= order.status === "Processing" ? "selected" : "" %>>Processing</option>
+                <option value="Shipped" <%= order.status === "Shipped" ? "selected" : "" %>>Shipped</option>
+                <option value="Delivered" <%= order.status === "Delivered" ? "selected" : "" %>>Delivered</option>
+                <option value="Cancelled" <%= order.status === "Cancelled" ? "selected" : "" %>>Cancelled</option>
+            </select>
+        </p>
+        <p><button>Update Status</button></p>
+    </form>
+</body>
+</html>
